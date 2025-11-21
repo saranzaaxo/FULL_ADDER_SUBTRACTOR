@@ -56,6 +56,16 @@ module half_adder (
     assign carry = a & b;   // AND for carry
 
 endmodule
+module full_subtractor (
+    input  wire a, b, bin,       // Inputs
+    output wire diff, borrow     // Outputs
+);
+
+    // Logic equations
+    assign diff   = a ^ b ^ bin;                  // Difference
+    assign borrow = (~a & b) | (~(a ^ b) & bin);  // Borrow logic
+
+endmodule
 
 ```
 
@@ -64,14 +74,15 @@ endmodule
 
 **RTL Schematic**
 <img width="841" height="201" alt="image" src="https://github.com/user-attachments/assets/2524a51e-5d55-49ba-9227-e8bcb86aed0c" />
+<img width="1308" height="461" alt="Screenshot 2025-11-21 142128" src="https://github.com/user-attachments/assets/60a36f07-deb8-433a-8454-9e9ae5ab974f" />
 
 
 **Output Timing Waveform**
-
-**Result:**
 <img width="938" height="384" alt="image" src="https://github.com/user-attachments/assets/503fa772-539e-4d72-bbcb-d032d7efdf9c" />
 
+<img width="1920" height="1080" alt="Screenshot 2025-11-21 142508" src="https://github.com/user-attachments/assets/8848a704-1ee7-4de6-86aa-2897885bf56b" />
 
+**Result:**
 Thus the Full Adder and Full Subtractor circuits are designed and the truth tables is verified using Quartus software.
 
 
